@@ -1,5 +1,7 @@
-case class SubtotalCalculator(basket: Basket) {
+case class SubtotalCalculator(basket: Basket, basePrices: Map[String, Double] = Map()) {
   def total: Double = {
-    0d
+    basket.items.foldRight(0d)({
+      case (element, total) => basePrices(element) + total
+    })
   }
 }
