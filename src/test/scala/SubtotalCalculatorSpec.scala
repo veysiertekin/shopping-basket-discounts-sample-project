@@ -18,5 +18,10 @@ class SubtotalCalculatorSpec extends AnyFreeSpec with Matchers {
       val calculator = SubtotalCalculator(basket, Map("orange" -> 0.25d))
       calculator.total mustBe 0.25d
     }
+    "calculate sub total for basket contains 3 apples and an orange" in {
+      val basket     = Basket().add("apple").add("apple").add("orange").add("apple")
+      val calculator = SubtotalCalculator(basket, Map("orange" -> 0.25d, "apple" -> 0.6d))
+      calculator.total mustBe 2.05d
+    }
   }
 }
