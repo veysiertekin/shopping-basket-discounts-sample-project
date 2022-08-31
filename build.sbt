@@ -9,6 +9,6 @@ lazy val root = (project in file(".")).settings(
       scalaVersion := Versions.scala
     )
   ),
-  name := "shopping-basket",
+  name := "shopping-basket-discounts-sample-project",
   libraryDependencies += "org.scalatest" %% "scalatest" % Versions.scalatest % Test
 )
