@@ -20,7 +20,7 @@ case class BuyOneGetOneDiscount(itemName: String) extends Discount {
     } else {
       val numberOfElements  = filteredItems.size
       val discountOccurance = numberOfElements / 2
-      basePrices(filteredItems.head) * discountOccurance
+      basePrices(itemName) * discountOccurance
     }
   }
 }
