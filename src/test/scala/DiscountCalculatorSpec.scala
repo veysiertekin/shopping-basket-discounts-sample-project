@@ -1,10 +1,12 @@
 import org.scalatest.matchers.must.Matchers
 import org.scalatest.freespec.AnyFreeSpec
 
-class DiscountSpec extends AnyFreeSpec with Matchers {
+class DiscountCalculatorSpec extends AnyFreeSpec with Matchers {
   "Shop's discount implementations" - {
-    "buy one get one apple free" in {
-      1 mustBe 1
+    "buy one get one apple free for just one apple" in {
+      val basket   = Basket().add("apple")
+      val discount = BuyOneGetOneDiscount.calculate(basket)
+      discount mustBe 0
     }
   }
 }
