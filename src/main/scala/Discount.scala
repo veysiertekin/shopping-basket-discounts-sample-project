@@ -1,14 +1,15 @@
 sealed trait Discount {
   def calculate(basket: Basket, basePrices: Map[String, Double] = Map()): Double
 }
-case object BuyOneGetOneDiscount extends Discount {
+case class BuyOneGetOneDiscount(itemName: String) extends Discount {
   override def calculate(basket: Basket, basePrices: Map[String, Double] = Map()): Double = {
-    if (basket.items.isEmpty) {
+    val filteredItems = basket.items.filter(_ == itemName)
+    if (filteredItems.isEmpty) {
       0d
     } else {
-      val numberOfElements  = basket.items.size
+      val numberOfElements  = filteredItems.size
       val discountOccurance = numberOfElements / 2
-      basePrices(basket.items.head) * discountOccurance
+      basePrices(filteredItems.head) * discountOccurance
     }
   }
 }
