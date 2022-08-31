@@ -3,6 +3,9 @@ case class Basket(items: List[String] = List()) {
     this.copy(items = items :+ item)
   }
   def remove(item: String): Basket = {
-    this.copy(items = items.tail)
+    items match {
+      case Nil    => this.copy(items = List())
+      case others => this.copy(items = others.tail)
+    }
   }
 }
