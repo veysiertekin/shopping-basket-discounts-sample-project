@@ -19,5 +19,9 @@ class BasketSpec extends AnyFreeSpec with Matchers {
       val basket = Basket().add("apple").remove("non-existent")
       basket.items mustBe List("apple")
     }
+    "add an apple and remove an apple from basket" in {
+      val basket = Basket().add("apple").remove("apple")
+      basket.items mustBe List()
+    }
   }
 }
