@@ -3,7 +3,9 @@ sealed trait Discount {
 }
 case object ThreeForTwoDiscount extends Discount {
   override def calculate(basket: Basket, basePrices: Map[String, Double]): Double = {
-    0
+    val numberOfElements  = basket.items.size
+    val discountOccurance = numberOfElements / 3
+    basePrices(basket.items.head) * discountOccurance
   }
 }
 case class BuyOneGetOneDiscount(itemName: String) extends Discount {
