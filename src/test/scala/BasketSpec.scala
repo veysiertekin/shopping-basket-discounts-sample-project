@@ -12,7 +12,7 @@ class BasketSpec extends AnyFreeSpec with Matchers {
       basket.items mustBe List("apple", "apple")
     }
     "remove non-existent item from empty basket" in {
-      val basket = Basket().remove("apple")
+      val basket = Basket().remove("non-existent")
       basket.items mustBe List()
     }
   }
