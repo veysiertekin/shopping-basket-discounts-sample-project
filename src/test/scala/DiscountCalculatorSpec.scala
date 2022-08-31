@@ -28,5 +28,10 @@ class DiscountCalculatorSpec extends AnyFreeSpec with Matchers {
       val discount = BuyOneGetOneDiscount("apple").calculate(basket, Map("apple" -> 0.6d))
       discount mustBe 0.6d
     }
+    "buy one get one apple free for three apples" in {
+      val basket   = Basket().add("apple").add("apple").add("orange").add("orange")
+      val discount = BuyOneGetOneDiscount("apple").calculate(basket, Map("apple" -> 0.6d))
+      discount mustBe 0.6d
+    }
   }
 }
