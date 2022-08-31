@@ -3,6 +3,6 @@ case class Basket(items: List[String] = List()) {
     this.copy(items = items :+ item)
   }
   def remove(item: String): Basket = {
-    this
+    this.copy(items = items.tail)
   }
 }
