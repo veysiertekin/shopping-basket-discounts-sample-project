@@ -45,8 +45,13 @@ class DiscountCalculatorSpec extends AnyFreeSpec with Matchers {
       val discount = ThreeForTwoDiscount.calculate(basket)
       discount mustBe 0
     }
-    "3 for 2 discount for three orange" in {
+    "3 for 2 discount for three oranges" in {
       val basket   = Basket().add("orange").add("orange").add("orange")
+      val discount = ThreeForTwoDiscount.calculate(basket, Map("orange" -> 0.25d))
+      discount mustBe 0.25d
+    }
+    "3 for 2 discount for three oranges and three apples" in {
+      val basket   = Basket().add("orange").add("orange").add("orange").add("apple").add("apple").add("apple")
       val discount = ThreeForTwoDiscount.calculate(basket, Map("orange" -> 0.25d))
       discount mustBe 0.25d
     }
