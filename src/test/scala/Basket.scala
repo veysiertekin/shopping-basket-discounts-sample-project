@@ -4,7 +4,7 @@ case class Basket(items: List[String] = List()) {
     this.copy(items = items :+ item)
   }
   def remove(item: String): Basket = {
-    this.copy(items = removefirst(item, items))
+    this.copy(items = removefirst(item, items.reverse).reverse)
   }
 
   @tailrec
