@@ -1,0 +1,8 @@
+# Ignore scala related folders
+**/target
+**/.bloop
+.metals
+project/project
+
+# Ignore editor related folders
+.vscode
